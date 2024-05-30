@@ -29,9 +29,11 @@ const StyledSocialList = styled.ul`
 
     a {
       padding: 10px;
+      filter: grayscale(1);
 
       &:hover,
       &:focus {
+        filter: unset;
         transform: translateY(-3px);
       }
 
