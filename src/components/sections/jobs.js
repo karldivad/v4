@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -9,7 +9,8 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
   max-width: 700px;
-
+  display: flex;
+  flex-direction: column;
   .inner {
     display: flex;
 
@@ -20,6 +21,13 @@ const StyledJobsSection = styled.section`
     // Prevent container from jumping
     @media (min-width: 700px) {
       min-height: 340px;
+    }
+  }
+
+  .more-button-wrapper {
+    margin: 40px auto;
+    .more-button {
+      ${({ theme }) => theme.mixins.button};
     }
   }
 `;
@@ -302,6 +310,11 @@ const Jobs = () => {
               );
             })}
         </StyledTabPanels>
+      </div>
+      <div className="more-button-wrapper">
+        <Link to="/projects">
+          <button className="more-button">Show All Projects</button>
+        </Link>
       </div>
     </StyledJobsSection>
   );

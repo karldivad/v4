@@ -129,7 +129,7 @@ const StyledTableContainer = styled.div`
   }
 `;
 
-const ArchivePage = ({ location, data }) => {
+const ProjectsPage = ({ location, data }) => {
   const projects = data.allMarkdownRemark.edges;
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
@@ -148,12 +148,12 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
+      <Helmet title="Projects" />
 
       <main>
         <header ref={revealTitle}>
-          <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <h1 className="big-heading">Projects</h1>
+          <p className="subtitle">A big list of projects I’ve worked on</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
@@ -180,6 +180,7 @@ const ArchivePage = ({ location, data }) => {
                     tech,
                     company,
                   } = node.frontmatter;
+
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -204,22 +205,38 @@ const ArchivePage = ({ location, data }) => {
                       <td className="links">
                         <div>
                           {external && (
-                            <a href={external} aria-label="External Link">
+                            <a
+                              href={external}
+                              aria-label="External Link"
+                              target="_blank"
+                              rel="noreferrer">
                               <Icon name="External" />
                             </a>
                           )}
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a
+                              href={github}
+                              aria-label="GitHub Link"
+                              target="_blank"
+                              rel="noreferrer">
                               <Icon name="GitHub" />
                             </a>
                           )}
                           {ios && (
-                            <a href={ios} aria-label="Apple App Store Link">
+                            <a
+                              href={ios}
+                              aria-label="Apple App Store Link"
+                              target="_blank"
+                              rel="noreferrer">
                               <Icon name="AppStore" />
                             </a>
                           )}
                           {android && (
-                            <a href={android} aria-label="Google Play Store Link">
+                            <a
+                              href={android}
+                              aria-label="Google Play Store Link"
+                              target="_blank"
+                              rel="noreferrer">
                               <Icon name="PlayStore" />
                             </a>
                           )}
@@ -235,12 +252,12 @@ const ArchivePage = ({ location, data }) => {
     </Layout>
   );
 };
-ArchivePage.propTypes = {
+ProjectsPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };
 
-export default ArchivePage;
+export default ProjectsPage;
 
 export const pageQuery = graphql`
   {
@@ -255,6 +272,8 @@ export const pageQuery = graphql`
             title
             tech
             github
+            ios
+            android
             external
             company
           }

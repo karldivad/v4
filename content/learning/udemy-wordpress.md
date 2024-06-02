@@ -6,7 +6,7 @@ external: '/courses/udemy-wordpress.pdf'
 tech:
   -
 company: 'Udemy'
-showInProjects: true
+showInLearning: true
 ---
 
 Over 455 million users use WordPress making it the number one website content management system (CMS) worldwide. This course explains the most basic features of WordPress.

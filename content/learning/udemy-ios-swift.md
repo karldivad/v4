@@ -6,7 +6,7 @@ external: '/courses/udemy-ios-swift.pdf'
 tech:
   -
 company: 'Udemy'
-showInProjects: true
+showInLearning: true
 ---
 
 This Swift 5.1 course is based on our in-person app development bootcamp in London, where we've perfected the curriculum over 4 years of in-person teaching.

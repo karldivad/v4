@@ -7,7 +7,7 @@ import sr from '@utils/sr';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
-const StyledProjectsSection = styled.section`
+const StyledLearningSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,13 +164,13 @@ const StyledProject = styled.li`
   }
 `;
 
-const Projects = () => {
+const Learning = () => {
   const data = useStaticQuery(graphql`
     query {
       projects: allMarkdownRemark(
         filter: {
-          fileAbsolutePath: { regex: "/content/projects/" }
-          frontmatter: { showInProjects: { ne: false } }
+          fileAbsolutePath: { regex: "/content/learning/" }
+          frontmatter: { showInLearning: { ne: false } }
         }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -191,7 +191,7 @@ const Projects = () => {
 
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
-  const revealProjects = useRef([]);
+  const revealLearning = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -201,7 +201,7 @@ const Projects = () => {
 
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealArchiveLink.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+    revealLearning.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
   const GRID_LIMIT = 6;
@@ -261,7 +261,7 @@ const Projects = () => {
   };
 
   return (
-    <StyledProjectsSection>
+    <StyledLearningSection>
       <h2 ref={revealTitle}>Lifelong Learning</h2>
 
       <ul className="projects-grid">
@@ -283,7 +283,7 @@ const Projects = () => {
                   exit={false}>
                   <StyledProject
                     key={i}
-                    ref={el => (revealProjects.current[i] = el)}
+                    ref={el => (revealLearning.current[i] = el)}
                     style={{
                       transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
                     }}>
@@ -298,8 +298,8 @@ const Projects = () => {
       {/* <button className="more-button" onClick={() => setShowMore(!showMore)}>
         Show {showMore ? 'Less' : 'More'}
       </button> */}
-    </StyledProjectsSection>
+    </StyledLearningSection>
   );
 };
 
-export default Projects;
+export default Learning;
