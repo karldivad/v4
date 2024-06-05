@@ -2,12 +2,10 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Carlos Valencia',
-    description:
-      'Carlos Valencia is a Full Stack developer, and his knowledge of various technologies has helped him and his clients solve many problems',
+    title: 'Carlos Valencia - Portfolio',
+    description: 'Full Stack developer, worked on many frameworks and crazy about technology.',
     siteUrl: 'https://karldivad.com', // No trailing slash allowed!
-    image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@karldivad',
+    image: '/og.jpg', // Path to your image you placed in the 'static' folder
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
