@@ -7,7 +7,5 @@ range: 'Jan 2019 - Feb 2019'
 url: 'https://bitmaker.la/'
 ---
 
-- Maintain and update existing spiders, and algorithms for data scraping.
-- Work on the auto-login feature to improve scraping capabilities.
-- Development of Django front-end improvements.
-- Bug fixing of dockerized server-side systems.
+- Engineered and maintained data scraping algorithms and spiders, implementing an improved auto-login system.
+- Developed front-end improvements for Django applications while resolving containerized server-side issues

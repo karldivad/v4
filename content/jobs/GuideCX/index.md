@@ -7,6 +7,5 @@ range: 'Mar 2019 - Jun 2019'
 url: 'https://www.guidecx.com/'
 ---
 
-- Created and refactored React components to developed new features and engage more users.
-- Full-stack web and server development of new features.
-- Bug fixing and extra hours of dedication to meet client expectations.
+- Developed and enhanced React components for web applications while implementing new user engagement features using Ruby on Rails.
+- Demonstrated commitment through additional hours and proactive bug resolution to exceed client expectations.
